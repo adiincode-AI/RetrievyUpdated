@@ -5,6 +5,7 @@ import logo from "../assets/logo.png";
 
 function Home() {
   const [items, setItems] = useState([]);
+  
 
   useEffect(() => {
     fetchRecentItems();

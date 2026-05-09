@@ -108,6 +108,49 @@ def search_item(title: str, db: Session = Depends(get_db)):
     ).all()
 
     return items
+@app.get("/match/{item_id}")
+def match_item(item_id:int, db: Session = Depends(get_db)):
+
+    current_item = db.query(database_models.Items).filter(
+        database_models.Items.id == item_id
+    ).first()
+    if not current_item:
+        return{"error":"Item not found"}
+    opposite_status = (
+        "found"
+        if current_item.status =="lost"
+        else "Lost"
+    )
+    possible_matches = db.query(database_models.Items).filter(
+        database_models.Items.status == opposite_status
+    ).all()
+
+    matches = []
+
+    for item in possible_matches:
+        title_match = current_item.title.lower() in item.title.lower()
+        description_match = (
+            current_item.description.lower()
+            in item.description.lower()
+        )
+        if title_match or description_match:
+            matches.append(item)
+
+    return matches
+
+@app.get("/retrievy-match")
+def retrievy_match(query:str, db:Session = Depends(get_db)):
+    items = db.query(database_models.Items).all()
+    matches = []
+
+    for item in items:
+        title_match = query.lower() in item.title.lower()
+
+        description_match = query.lower() in item.description.lower()
+        if title_match and description_match:
+            matches.append(item)
+
+    return matches
 
 # @app.get("/search")
 # def search_items(title: str,db: Session = Depends(get_db)):
