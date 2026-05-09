@@ -1,6 +1,56 @@
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import api from "../api";
 
 function Login() {
+
+  const navigate = useNavigate();
+
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
+
+  const handleChange = (e) => {
+
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+
+  };
+
+  const handleSubmit = async (e) => {
+
+    e.preventDefault();
+
+    try {
+
+      const response = await api.post("/login", formData);
+
+      const token = response.data.access_token;
+
+      if (!token) {
+        alert("Invalid credentials");
+        return;
+      }
+
+      localStorage.setItem("token", token);
+
+      alert("Login successful");
+
+      navigate("/");
+
+    } catch (error) {
+
+      console.log(error);
+
+      alert("Login failed");
+
+    }
+
+  };
+
   return (
     <div className="min-h-screen bg-[#F4F5EF] flex items-center justify-center p-6">
 
@@ -20,19 +70,25 @@ function Login() {
         </div>
 
         {/* FORM */}
-        <div className="space-y-5">
+        <form onSubmit={handleSubmit} className="space-y-5">
 
-          {/* USERNAME */}
+          {/* EMAIL */}
           <input
-            type="text"
-            placeholder="Username"
+            type="email"
+            name="email"
+            placeholder="Email Address"
+            value={formData.email}
+            onChange={handleChange}
             className="w-full bg-[#F4F5EF] border border-[#637C80] text-[#121011] rounded-2xl p-4 outline-none focus:ring-2 focus:ring-[#203972] transition"
           />
 
           {/* PASSWORD */}
           <input
             type="password"
+            name="password"
             placeholder="Password"
+            value={formData.password}
+            onChange={handleChange}
             className="w-full bg-[#F4F5EF] border border-[#637C80] text-[#121011] rounded-2xl p-4 outline-none focus:ring-2 focus:ring-[#203972] transition"
           />
 
@@ -43,7 +99,7 @@ function Login() {
 
           </button>
 
-        </div>
+        </form>
 
         {/* FOOTER */}
         <div className="mt-8 text-center">

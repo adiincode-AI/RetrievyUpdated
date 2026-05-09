@@ -1,7 +1,20 @@
 import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
+import { jwtDecode } from "jwt-decode";
 
 function Navbar() {
+  const token = localStorage.getItem("token");
+
+let username = "";
+
+if (token) {
+
+  const decoded = jwtDecode(token);
+
+  username = decoded.username;
+
+}
+
   return (
     <nav className="bg-[#1E2737] text-white sticky top-0 z-50 shadow-sm">
 
@@ -52,13 +65,6 @@ function Navbar() {
             className="text-[#F4F5EF] hover:text-[#E56A3B] transition"
           >
             Report
-          </Link>
-
-          <Link
-            to="/my-items"
-            className="text-[#F4F5EF] hover:text-[#E56A3B] transition"
-          >
-            My Items
           </Link>
 
           <Link
