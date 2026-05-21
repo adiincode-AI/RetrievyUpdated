@@ -13,8 +13,9 @@ database_models.Base.metadata.create_all(bind=engine)
 
 origins = [
     "http://localhost:5173",
-    "https://retrievy.vercel.app/"
+    "https://retrievy.vercel.app",
 ]
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
@@ -34,6 +35,7 @@ def get_db():
 @app.get("/")
 def root():
     return {"status": "Retrievy backend is running 🚀"}
+
 
 @app.post("/register")
 def register(user: UserCreate, db: Session = Depends(get_db)):
