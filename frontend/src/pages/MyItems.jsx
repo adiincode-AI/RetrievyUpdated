@@ -1,3 +1,5 @@
+
+// MyItems.jsx
 function MyItems() {
   return (
     <div className="min-h-screen bg-[#F4F5EF] p-6">
@@ -21,7 +23,7 @@ function MyItems() {
         <div className="grid gap-6">
 
           {/* ITEM CARD */}
-          <div className="bg-white border border-[#637C80] rounded-3xl p-6 shadow-sm transition hover:scale-[1.01]">
+          <div className="bg-white border border-[#E2E8F0] shadow-sm rounded-3xl p-6 shadow-sm transition hover:scale-[1.01]">
 
             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
 
@@ -53,7 +55,7 @@ function MyItems() {
               {/* RIGHT */}
               <div className="flex gap-3">
 
-                <button className="bg-white border border-[#637C80] hover:bg-[#F4F5EF] transition px-5 py-2 rounded-xl text-[#121011] font-medium">
+                <button className="bg-white border border-[#E2E8F0] shadow-sm hover:bg-[#F4F5EF] transition px-5 py-2 rounded-xl text-[#121011] font-medium">
 
                   Edit
 

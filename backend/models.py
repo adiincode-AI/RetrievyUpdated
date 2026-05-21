@@ -22,8 +22,8 @@ class UserLogin(BaseModel):
 class ItemResponse(ItemCreate):
     id:int
 
-class Config:
-    from_attributes = True
+    class Config:
+        from_attributes = True
 
 
 

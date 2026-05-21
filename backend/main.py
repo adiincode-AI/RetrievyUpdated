@@ -61,10 +61,10 @@ def login(user: UserLogin, db: Session = Depends(get_db)):
     ).first()
 
     if not db_user:
-        return {"error": "Invalid credentials"}
+        return {"error": "Invalid credentials(Worng username)"}
 
     if not verify_password(user.password, db_user.password):
-        return {"error": "Invalid credentials"}
+        return {"error": "Invalid credentials(Wrong Password)"}
     token = create_access_token(
         data={
             "user_id": db_user.id,

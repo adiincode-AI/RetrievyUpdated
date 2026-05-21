@@ -3,25 +3,30 @@ import logo from "../assets/logo.png";
 import { jwtDecode } from "jwt-decode";
 
 function Navbar() {
+
   const token = localStorage.getItem("token");
 
-let username = "";
+  let username = "";
 
-if (token) {
+  if (token) {
 
-  const decoded = jwtDecode(token);
+    const decoded = jwtDecode(token);
 
-  username = decoded.username;
+    username = decoded.username;
 
-}
+  }
 
   return (
-    <nav className="bg-[#1E2737] text-white sticky top-0 z-50 shadow-sm">
+
+    <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-[#E2E8F0]">
 
       <div className="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
 
         {/* LOGO */}
-        <Link to="/" className="flex items-center gap-3">
+        <Link
+          to="/"
+          className="flex items-center gap-3"
+        >
 
           <img
             src={logo}
@@ -31,11 +36,11 @@ if (token) {
 
           <div>
 
-            <h1 className="text-xl font-bold text-white">
+            <h1 className="text-xl font-bold text-[#0F172A]">
               Retrievy
             </h1>
 
-            <p className="text-xs text-[#9B9F98]">
+            <p className="text-xs text-[#475569]">
               Lost & Found Platform
             </p>
 
@@ -43,42 +48,74 @@ if (token) {
 
         </Link>
 
-        {/* NAV LINKS */}
+        {/* NAVIGATION */}
         <div className="flex items-center gap-6 text-sm md:text-base">
 
           <Link
             to="/"
-            className="text-[#F4F5EF] hover:text-[#E56A3B] transition"
+            className="text-[#475569] hover:text-[#2563EB] transition font-medium"
           >
             Home
           </Link>
 
           <Link
             to="/browse"
-            className="text-[#F4F5EF] hover:text-[#E56A3B] transition"
+            className="text-[#475569] hover:text-[#2563EB] transition font-medium"
           >
             Browse
           </Link>
 
           <Link
             to="/report"
-            className="text-[#F4F5EF] hover:text-[#E56A3B] transition"
+            className="text-[#475569] hover:text-[#2563EB] transition font-medium"
           >
             Report
           </Link>
 
           <Link
-            to="/login"
-            className="bg-[#203972] hover:bg-[#E56A3B] text-white px-5 py-2 rounded-xl transition font-medium"
+            to="/about"
+            className="text-[#475569] hover:text-[#2563EB] transition font-medium"
           >
-            Login
+            About
           </Link>
+
+          {token ? (
+
+            <div className="flex items-center gap-4">
+
+              <span className="text-[#0F172A] font-semibold">
+                {username}
+              </span>
+
+              <button
+                onClick={() => {
+                  localStorage.removeItem("token");
+                  window.location.reload();
+                }}
+                className="btn-secondary px-5 py-2"
+              >
+                Logout
+              </button>
+
+            </div>
+
+          ) : (
+
+            <Link
+              to="/login"
+              className="btn-primary px-5 py-2"
+            >
+              Login
+            </Link>
+
+          )}
 
         </div>
 
       </div>
 
     </nav>
+
   );
 }
 

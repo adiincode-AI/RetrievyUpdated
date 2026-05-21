@@ -52,65 +52,56 @@ function Login() {
   };
 
   return (
-    <div className="min-h-screen bg-[#F4F5EF] flex items-center justify-center p-6">
+    <div className="min-h-screen bg-[#F8FAFC] flex items-center justify-center p-6">
 
-      <div className="w-full max-w-md bg-white border border-[#637C80] rounded-3xl p-8 shadow-sm">
+      <div className="card p-8 max-w-md w-full">
 
-        {/* HEADER */}
         <div className="mb-8">
 
-          <h1 className="text-4xl font-black text-[#121011] mb-2">
+          <h1 className="text-4xl font-black text-[#0F172A] mb-2">
             Welcome Back
           </h1>
 
-          <p className="text-[#637C80]">
+          <p className="text-[#475569]">
             Login to continue using Retrievy.
           </p>
 
         </div>
 
-        {/* FORM */}
         <form onSubmit={handleSubmit} className="space-y-5">
 
-          {/* EMAIL */}
           <input
             type="email"
             name="email"
             placeholder="Email Address"
             value={formData.email}
             onChange={handleChange}
-            className="w-full bg-[#F4F5EF] border border-[#637C80] text-[#121011] rounded-2xl p-4 outline-none focus:ring-2 focus:ring-[#203972] transition"
+            className="input-modern"
           />
 
-          {/* PASSWORD */}
           <input
             type="password"
             name="password"
             placeholder="Password"
             value={formData.password}
             onChange={handleChange}
-            className="w-full bg-[#F4F5EF] border border-[#637C80] text-[#121011] rounded-2xl p-4 outline-none focus:ring-2 focus:ring-[#203972] transition"
+            className="input-modern"
           />
 
-          {/* BUTTON */}
-          <button className="w-full bg-[#203972] hover:bg-[#E56A3B] text-white transition rounded-2xl py-4 font-semibold shadow-lg">
-
+          <button className="btn-primary w-full py-4">
             Login
-
           </button>
 
         </form>
 
-        {/* FOOTER */}
         <div className="mt-8 text-center">
 
-          <p className="text-[#637C80]">
-
-            Don’t have an account?{" "}
+          <p className="text-[#475569]">
+            Don’t have an account?{' '}
 
             <Link
               to="/register"
-              className="text-[#203972] font-semibold hover:text-[#E56A3B] transition"
+              className="text-[#2563EB] font-semibold hover:text-[#1D4ED8] transition"
             >
               Register
             </Link>

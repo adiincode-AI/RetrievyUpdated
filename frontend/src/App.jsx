@@ -1,3 +1,5 @@
+// App.jsx
+
 import { Routes, Route } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
@@ -8,6 +10,7 @@ import Register from "./pages/Register";
 import BrowseItems from "./pages/BrowseItems";
 import ReportItem from "./pages/ReportItem";
 import MyItems from "./pages/MyItems";
+import About from "./pages/About";
 
 
 
@@ -23,6 +26,7 @@ function App() {
         <Route path="/my-items" element={<MyItems />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/about" element={<About />} />
       </Routes>
     </div>
   );

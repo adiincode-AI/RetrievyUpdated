@@ -44,22 +44,20 @@ function ReportItem() {
   };
 
   return (
-    <div className="min-h-screen bg-[#F4F5EF] p-6">
+    <div className="min-h-screen bg-[#F8FAFC] p-6">
 
-      <div className="max-w-3xl mx-auto bg-white border border-[#637C80] rounded-3xl p-8 shadow-sm">
+      <div className="max-w-3xl mx-auto card p-8">
 
-        {/* HEADER */}
         <div className="mb-10">
-          <h1 className="text-5xl font-black text-[#121011] mb-3">
+          <h1 className="text-5xl font-black text-[#0F172A] mb-3">
             Report Item
           </h1>
 
-          <p className="text-[#637C80] text-lg">
+          <p className="text-[#475569] text-lg">
             Submit details about a lost or found item.
           </p>
         </div>
 
-        {/* FORM */}
         <div className="space-y-5">
 
           <input
@@ -68,14 +66,14 @@ function ReportItem() {
             onChange={handleChange}
             type="text"
             placeholder="Item Name"
-            className="w-full bg-[#F4F5EF] border border-[#637C80] text-[#121011] rounded-2xl p-4 outline-none focus:ring-2 focus:ring-[#203972] transition"
+            className="input-modern"
           />
 
           <select
             name="status"
             value={formData.status}
             onChange={handleChange}
-            className="w-full bg-[#F4F5EF] border border-[#637C80] text-[#121011] rounded-2xl p-4 outline-none focus:ring-2 focus:ring-[#203972] transition"
+            className="input-modern"
           >
             <option value="Lost">Lost</option>
             <option value="Found">Found</option>
@@ -87,7 +85,7 @@ function ReportItem() {
             onChange={handleChange}
             type="text"
             placeholder="Location"
-            className="w-full bg-[#F4F5EF] border border-[#637C80] text-[#121011] rounded-2xl p-4 outline-none focus:ring-2 focus:ring-[#203972] transition"
+            className="input-modern"
           />
 
           <input
@@ -96,7 +94,7 @@ function ReportItem() {
             onChange={handleChange}
             type="text"
             placeholder="Phone / Email"
-            className="w-full bg-[#F4F5EF] border border-[#637C80] text-[#121011] rounded-2xl p-4 outline-none focus:ring-2 focus:ring-[#203972] transition"
+            className="input-modern"
           />
 
           <textarea
@@ -105,13 +103,13 @@ function ReportItem() {
             onChange={handleChange}
             rows="5"
             placeholder="Description"
-            className="w-full bg-[#F4F5EF] border border-[#637C80] text-[#121011] rounded-2xl p-4 resize-none outline-none focus:ring-2 focus:ring-[#203972] transition"
+            className="input-modern resize-none"
           />
 
           <button
             onClick={handleSubmit}
             disabled={loading}
-            className="w-full bg-[#203972] hover:bg-[#E56A3B] text-white px-8 py-4 rounded-2xl font-semibold shadow-lg transition disabled:opacity-50"
+            className="btn-primary w-full py-4 disabled:opacity-50"
           >
             {loading ? "Submitting..." : "Submit Report"}
           </button>
