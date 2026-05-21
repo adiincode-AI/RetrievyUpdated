@@ -24,7 +24,7 @@ function Home() {
 
   return (
     <div className="min-h-screen bg-[#F8FAFC]">
-      {/* HERO SECTION */}
+    
       <section className="max-w-7xl mx-auto px-6 py-24">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* LEFT */}
@@ -61,7 +61,7 @@ function Home() {
             </div>
           </div>
 
-          {/* RIGHT */}
+       
           <div className="card p-8">
             <h3 className="text-2xl font-bold text-[#0F172A] mb-6">
               Recent Posts
@@ -103,9 +103,9 @@ function Home() {
         </div>
       </section>
 
-      {/* FOOTER */}
+    
       <footer className="relative overflow-hidden border-t border-[#E2E8F0] mt-24 bg-white">
-        {/* BACKGROUND GRAPHICS */}
+       
         <div className="absolute top-0 left-0 w-72 h-72 bg-blue-100 rounded-full blur-3xl opacity-40 -translate-x-1/2 -translate-y-1/2"></div>
 
         <div className="absolute bottom-0 right-0 w-72 h-72 bg-teal-100 rounded-full blur-3xl opacity-40 translate-x-1/2 translate-y-1/2"></div>
@@ -124,7 +124,7 @@ function Home() {
               </p>
             </div>
 
-            {/* QUICK LINKS */}
+          
             <div>
               <h3 className="text-lg font-semibold text-[#0F172A] mb-5">
                 Quick Links
@@ -154,16 +154,16 @@ function Home() {
               </div>
             </div>
 
-            {/* SOCIALS */}
+           
             <div>
               <h3 className="text-lg font-semibold text-[#0F172A] mb-5">
                 Connect
               </h3>
 
               <div className="flex items-center gap-4">
-                {/* GITHUB */}
+             
                 <a
-                  href="https://github.com/YOUR_USERNAME"
+                  href="https://github.com/adiincode-AI/RetrievyUpdated"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-12 h-12 rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] flex items-center justify-center hover:bg-blue-50 hover:border-blue-200 transition"
@@ -178,9 +178,9 @@ function Home() {
                   </svg>
                 </a>
 
-                {/* LINKEDIN */}
+             
                 <a
-                  href="https://linkedin.com/in/YOUR_USERNAME"
+                  href="https://www.linkedin.com/in/adityar-backend/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-12 h-12 rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] flex items-center justify-center hover:bg-blue-50 hover:border-blue-200 transition"
@@ -195,7 +195,7 @@ function Home() {
                   </svg>
                 </a>
 
-                {/* TWITTER/X */}
+                
                 <a
                   href="https://x.com/YOUR_USERNAME"
                   target="_blank"
@@ -215,7 +215,6 @@ function Home() {
             </div>
           </div>
 
-          {/* BOTTOM */}
           <div className="border-t border-[#E2E8F0] mt-12 pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-sm text-[#64748B]">
               © 2026 Retrievy. All rights reserved.
