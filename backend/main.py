@@ -30,6 +30,9 @@ def get_db():
     finally:
         db.close()
 
+@app.get("/")
+def root():
+    return {"status": "Retrievy backend is running 🚀"}
 
 @app.post("/register")
 def register(user: UserCreate, db: Session = Depends(get_db)):
