@@ -6,6 +6,9 @@ load_dotenv()
 
 db_url = os.getenv("DATABASE_URL")
 
+if not db_url:
+    raise ValueError("DATABASE_URL is missing")
+
 engine = create_engine(
     db_url,
     pool_pre_ping=True,
